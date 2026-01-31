@@ -3,7 +3,6 @@
 @section('title', 'Edit User')
 
 @section('content')
-    {{-- Header --}}
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h3 class="fw-bold mb-0">Edit Data User</h3>
     </div>
@@ -102,8 +101,6 @@
 @section('scripts')
 <script>
 $(document).ready(function () {
-
-    // CSRF
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': document

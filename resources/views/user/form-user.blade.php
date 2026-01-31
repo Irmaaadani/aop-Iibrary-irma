@@ -3,10 +3,9 @@
 @section('title', 'Tambah User')
 
 @section('content')
-    {{-- Header --}}
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <h3 class="fw-bold mb-0">Tambah Data User</h3>
-    </div>
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h3 class="fw-bold mb-0">Tambah Data User</h3>
+</div>
 
     <div class="container">
         <div class="row justify-content-center">
@@ -29,7 +28,6 @@
                                         id="addName"
                                             value="{{ old('name') }}" required>
                                     </div>
-
                                   
                                     <div class="mb-3">
                                         <label class="form-label">Email</label>
@@ -83,10 +81,8 @@
                                 <button type="button" id="btnSaveAdd" class="btn btn-primary">Simpan</button>
                             </div>
                         </form>
-
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -95,8 +91,6 @@
 @section('scripts')
 <script>
 $(document).ready(function () {
-
-    // CSRF SETUP
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': document

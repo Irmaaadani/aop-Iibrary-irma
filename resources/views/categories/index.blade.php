@@ -40,7 +40,6 @@
                         class="btn btn-info btn-sm">
                             Detail
                         </a>
-
                         @if ($canManage)
                             <button class="btn btn-warning btn-sm btn-edit"
                                 data-id="{{ $category->id }}"
@@ -92,7 +91,6 @@
                 <h5 class="modal-title">Edit Kategori</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
-
             <div class="modal-body">
                 <input type="hidden" id="editId">
                 <div class="mb-3">
@@ -103,7 +101,7 @@
 
             <div class="modal-footer">
                 <button class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                <button class="btn btn-primary" id="btnSaveEdit">Edit</button>
+                <button class="btn btn-primary" id="btnSaveEdit">Update</button>
             </div>
         </div>
     </div>

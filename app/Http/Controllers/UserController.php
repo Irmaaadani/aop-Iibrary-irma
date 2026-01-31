@@ -21,27 +21,53 @@ class UserController extends Controller
 
     public function createStore(Request $request)
     {
-        $validated = $request->validate([
-            'role'     => 'required',
-            'name'     => 'required|string|max:255',
-            'email'    => 'required|email|unique:users,email',
-            'password' => 'required|min:6',
-            'phone'    => 'required',
-            'address'  => 'required',
-        ]);
+    $request->validate([
+        'role'     => 'required',
+        'name'     => 'required|string|max:255',
+        'email'    => 'required|email',
+        'password' => 'required|min:6',
+        'phone'    => 'required',
+        'address'  => 'required',
+    ]);
 
-        User::create([
-            'role'     => $request->role,
-            'name'     => $request->name,
-            'email'    => $request->email,
-            'password' => Hash::make($request->password),
-            'phone'    => $request->phone,
-            'address'  => $request->address,
-        ]);
+    $existingUser = User::withTrashed()
+        ->where('email', $request->email)
+        ->first();
+
+    if ($existingUser) {
+        if ($existingUser->trashed()) {
+
+            $existingUser->restore();
+            $existingUser->update([
+                'role'     => $request->role,
+                'name'     => $request->name,
+                'password' => Hash::make($request->password),
+                'phone'    => $request->phone,
+                'address'  => $request->address,
+            ]);
+
+            return response()->json([
+                'message' => 'User berrhasil ditambahkan'
+            ], 200);
+        }
 
         return response()->json([
-            'message' => 'User berhasil ditambahkan'
-        ], 201);
+            'message' => 'Email sudah terdaftar'
+        ], 422);
+    }
+
+    User::create([
+        'role'     => $request->role,
+        'name'     => $request->name,
+        'email'    => $request->email,
+        'password' => Hash::make($request->password),
+        'phone'    => $request->phone,
+        'address'  => $request->address,
+    ]);
+
+    return response()->json([
+        'message' => 'User berhasil ditambahkan'
+    ], 201);
     }
 
     public function edit($id)

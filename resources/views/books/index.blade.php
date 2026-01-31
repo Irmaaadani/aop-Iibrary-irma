@@ -49,10 +49,8 @@
 
                     @if ($canManage)
                         <td>
-                            <button class="btn btn-warning btn-sm btn-edit"
-                                data-id="{{ $book->id }}">
-                                Edit
-                            </button>
+                            <button class="btn btn-warning btn-sm" data-bs-toggle="modal"data-bs-target="#modalEdit{{ $book->id }}">Edit</button>
+
                             <button class="btn btn-danger btn-sm btn-delete"
                                 data-id="{{ $book->id }}">
                                 Delete
@@ -134,11 +132,9 @@
                                required>
                     </div>
                 </div>
-
                 <div class="modal-footer">
-                    <button class="btn btn-primary" type="submit">
-                        Simpan
-                    </button>
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    <button class="btn btn-primary" type="submit">Simpan</button>
                 </div>
             </form>
         </div>

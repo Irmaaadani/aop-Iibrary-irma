@@ -3,75 +3,65 @@
 @section('title', 'Data Peminjaman')
 
 @section('content')
-    {{-- Header --}}
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <h3 class="fw-bold mb-0">Data User</h3>
-        <a href="/add-user">
-            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAdd">
-                Tambah User
-            </button>
-        </a>
-    </div>
 
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h3 class="fw-bold mb-0">Data User</h3>
+    <a href="/add-user">
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAdd">
+            Tambah User
+        </button>
+    </a>
+</div>
 
-    {{-- TABLE --}}
-    <div class="card">
-        <div class="card-body p-0">
-            <table class="table table-bordered table-hover mb-0">
-                <thead class="table-light">
+<div class="card">
+    <div class="card-body p-0">
+        <table class="table table-bordered table-hover mb-0">
+            <thead class="table-light">
+                <tr>
+                    <th>No</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Phone</th>
+                    <th>Addres</th>
+                    <th width="160">Aksi</th>
+                </tr>
+            </thead>
+            <tbody id="loanTable">
+                {{-- <tr>
+                    <td colspan="6" class="text-center text-muted">
+                        Memuat data...
+                    </td>
+                </tr> --}}
+                @forelse ($user as $index => $u)
                     <tr>
-                        <th>No</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Role</th>
-                        <th>Phone</th>
-                        <th>Addres</th>
-                        <th width="160">Aksi</th>
-                    </tr>
-                </thead>
-                <tbody id="loanTable">
-                    {{-- <tr>
-                        <td colspan="6" class="text-center text-muted">
-                            Memuat data...
+                        <td>{{ $index + 1 }}</td>
+                        <td>{{ $u->name }}</td>
+                        <td>{{ $u->email }}</td>
+                        <td>{{ $u->role ?? '-' }}</td>
+                        <td>{{ $u->phone ?? '-' }}</td>
+                        <td>{{ $u->address ?? '-' }}</td>
+                        <td>
+                            <a href="/edit-user/{{ $u->id }}" class="btn btn-sm btn-warning">
+                                Edit
+                            </a>
+                            <button class="btn btn-sm btn-danger btn-delete" data-id="{{ $u->id }}">
+                                Hapus
+                            </button>
+
                         </td>
-                    </tr> --}}
-                    @forelse ($user as $index => $u)
-                        <tr>
-                            <td>{{ $index + 1 }}</td>
-                            <td>{{ $u->name }}</td>
-                            <td>{{ $u->email }}</td>
-                            <td>{{ $u->role ?? '-' }}</td>
-                            <td>{{ $u->phone ?? '-' }}</td>
-                            <td>{{ $u->address ?? '-' }}</td>
-                            <td>
-                                <a href="/edit-user/{{ $u->id }}" class="btn btn-sm btn-warning">
-                                    Edit
-                                </a>
-                                {{-- <form action="/user-delete/ {{ $u->id }}" method="POST" class="d-inline">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-sm btn-danger" onclick="return confirm('Yakin hapus user ini?')">
-                                        Hapus
-                                    </button>
-                                </form> --}}
-                                <button class="btn btn-sm btn-danger btn-delete" data-id="{{ $u->id }}">
-                                    Hapus
-                                </button>
-
-                            </td>
-                        </tr>
-                    @empty
-                        <tr>
-                            <td colspan="7" class="text-center text-muted">
-                                Data user tidak tersedia
-                            </td>
-                        </tr>
-                    @endforelse
-                </tbody>
-            </table>
-        </div>
+                    </tr>
+                @empty
+                    <tr>
+                        <td colspan="7" class="text-center text-muted">
+                            Data user tidak tersedia
+                        </td>
+                    </tr>
+                @endforelse
+            </tbody>
+        </table>
     </div>
-
+</div>
 @endsection
 
 @section('scripts')
