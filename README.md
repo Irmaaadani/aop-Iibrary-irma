@@ -1,59 +1,116 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Sistem Informasi Perpustakaan – Laravel 12
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## 👤 Profil Pengembang
+Perkenalkan, saya **Ade Irma Hamdani**  
+NIM **1323084**  
+Program Studi **Sistem Informasi Industri Otomotif (SIIO)**  
+Politeknik STMI Jakarta  
 
-## About Laravel
+Melalui project ini, saya mengajukan diri untuk **magang di Astra Otoparts** pada posisi **IT**.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 📌 Deskripsi Project
+Project ini merupakan implementasi aplikasi **Sistem Informasi Perpustakaan** yang dikembangkan berdasarkan desain database dari soal berikut:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+🔗 https://dbdiagram.io/d/Soal-CRUD-67ca4bcd263d6cf9a0853a9b
 
-## Learning Laravel
+Aplikasi ini dibangun sebagai latihan penerapan:
+- relasi database
+- autentikasi & otorisasi user
+- pengelolaan data berbasis role
+- proses bisnis peminjaman buku
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+---
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 🛠️ Teknologi yang Digunakan
+- PHP **8.2.12**
+- Composer **2.8.11**
+- Laravel **12**
+- MySQL
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 👥 Role & Hak Akses
+Aplikasi memiliki **3 role pengguna**:
 
-### Premium Partners
+### 1. Admin
+- Mengelola data user
+- Mengelola data buku dan kategori
+- Melihat seluruh data peminjaman
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### 2. Librarian
+- Mengelola data buku dan kategori
+- Mengelola data peminjaman
+- Melihat riwayat peminjaman **yang terkait dengan dirinya saja**
 
-## Contributing
+### 3. Member
+- Melihat data buku dan kategori
+- Melihat data peminjaman **miliknya sendiri**
+- Tidak memiliki hak untuk mengelola data
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+## 📚 Manajemen Buku & Kategori
+- Satu buku dapat memiliki **lebih dari satu kategori**
+- Relasi buku dan kategori diatur melalui tabel transaksi **book_category**
+- Kategori buku dapat ditambahkan dan diubah saat proses input atau edit data buku
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+---
 
-## Security Vulnerabilities
+## 🔐 Autentikasi
+Aplikasi menggunakan autentikasi sederhana berbasis **Laravel Fortify**, dengan menyesuaikan struktur tabel `users` sesuai dengan soal yang diberikan.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Pada proses peminjaman:
+- `librarian_id` terdeteksi otomatis melalui autentikasi Laravel
+- Tidak perlu input manual dari user
 
-## License
+---
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 🌱 Seeder
+Seeder telah disediakan untuk:
+- Data User
+- Data Kategori  
+
+Seeder ini digunakan sebagai data awal (inisiasi) aplikasi.
+
+---
+
+## ⚙️ Cara Install & Menjalankan Aplikasi
+
+### 1. Clone repository
+git clone https://github.com/Irmaaadani/aop-Iibrary-irma.git
+
+### 2. Install dependency PHP (Composer)
+composer install
+
+### 2. Install dependency PHP (Composer)
+composer install
+
+### 3. Install dependency frontend
+npm install
+
+### 4. Konfigurasi environment
+cp .env.example .env
+php artisan key:generate
+
+### 5. sesuaikan konfigurasi database di .env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=perpustakaan
+DB_USERNAME=root
+DB_PASSWORD=
+
+### 6. Migrasi dan seeder database
+php artisan migrate --seed
+
+### 7. Menjalankan backend
+php artisan serve
+
+### 8. Menjalankan frontend
+npm run dev
+
+
+
+
