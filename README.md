@@ -20,7 +20,6 @@ Aplikasi ini dibangun sebagai latihan penerapan:
 - autentikasi & otorisasi user
 - pengelolaan data berbasis role
 - proses bisnis peminjaman buku
-
 ---
 
 ## 🛠️ Teknologi yang Digunakan
@@ -28,6 +27,8 @@ Aplikasi ini dibangun sebagai latihan penerapan:
 - Composer **2.8.11**
 - Laravel **12**
 - MySQL
+- AJAX
+- Jquery
 
 ---
 
@@ -55,6 +56,7 @@ Aplikasi memiliki **3 role pengguna**:
 - Satu buku dapat memiliki **lebih dari satu kategori**
 - Relasi buku dan kategori diatur melalui tabel transaksi **book_category**
 - Kategori buku dapat ditambahkan dan diubah saat proses input atau edit data buku
+- Selama buku masih dipinjam oleh member, maka buku yang sama tidak bisa dipinjam member lainnya
 
 ---
 
