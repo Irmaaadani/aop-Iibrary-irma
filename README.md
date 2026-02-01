@@ -74,7 +74,20 @@ Seeder telah disediakan untuk:
 - Data User
 - Data Kategori  
 
-Seeder ini digunakan sebagai data awal (inisiasi) aplikasi.
+Seeder ini digunakan sebagai data awal (inisiasi) aplikasi karena tidak tersedia fitur registrasi.  
+Role **admin** bertugas untuk membuat data user baru di dalam sistem.
+
+**Admin**
+- username: dani@gmail.com
+- password: 123456
+
+**Librarian**
+- username: novry@gmail.com
+- password: 123456
+
+**Member**
+- username: irma@gmail.com
+- password: 123456
 
 ---
 
