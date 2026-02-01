@@ -78,15 +78,15 @@ Seeder ini digunakan sebagai data awal (inisiasi) aplikasi karena tidak tersedia
 Role **admin** bertugas untuk membuat data user baru di dalam sistem.
 
 **Admin**
-- username: dani@gmail.com
+- email: dani@gmail.com
 - password: 123456
 
 **Librarian**
-- username: novry@gmail.com
+- email: novry@gmail.com
 - password: 123456
 
 **Member**
-- username: irma@gmail.com
+- email: irma@gmail.com
 - password: 123456
 
 ---
@@ -95,9 +95,6 @@ Role **admin** bertugas untuk membuat data user baru di dalam sistem.
 
 ### 1. Clone repository
 git clone https://github.com/Irmaaadani/aop-Iibrary-irma.git
-
-### 2. Install dependency PHP (Composer)
-composer install
 
 ### 2. Install dependency PHP (Composer)
 composer install
