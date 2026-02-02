@@ -74,7 +74,20 @@ Seeder telah disediakan untuk:
 - Data User
 - Data Kategori  
 
-Seeder ini digunakan sebagai data awal (inisiasi) aplikasi.
+Seeder ini digunakan sebagai data awal (inisiasi) aplikasi karena tidak tersedia fitur registrasi.  
+Role **admin** bertugas untuk membuat data user baru di dalam sistem.
+
+**Admin**
+- email: dani@gmail.com
+- password: 123456
+
+**Librarian**
+- email: novry@gmail.com
+- password: 123456
+
+**Member**
+- email: irma@gmail.com
+- password: 123456
 
 ---
 
@@ -82,9 +95,6 @@ Seeder ini digunakan sebagai data awal (inisiasi) aplikasi.
 
 ### 1. Clone repository
 git clone https://github.com/Irmaaadani/aop-Iibrary-irma.git
-
-### 2. Install dependency PHP (Composer)
-composer install
 
 ### 2. Install dependency PHP (Composer)
 composer install
